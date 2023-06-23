@@ -11,14 +11,16 @@ export const DefaultDashboard = () => {
   const [dataFromJson, setDataFromJson] = useState(null)
   const [userProfileVisible, setUserProfileVisible] = useState(false)
   const [selectedUser, setSelectedUser] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => {
         console.log('usersss', users)
+
+        // setTimeout(() => {
         setDataFromJson(users)
+        // }, 2000)
 
       })
 
@@ -44,7 +46,9 @@ export const DefaultDashboard = () => {
       dataIndex: 'name',
       render: (_, record) => (
         <div className="d-flex">
-          <AvatarStatus src={record.img} name={record.name} subTitle={record.email} />
+          <Link to={`/app/dashboards/setting/${dataFromJson.id}`}>
+            <AvatarStatus src={record.img} name={record.name} subTitle={record.email} />
+          </Link>
         </div>
       ),
       sorter: {
@@ -95,19 +99,16 @@ export const DefaultDashboard = () => {
   return (
     <div>
       <Card>
-        {dataFromJson && <Link to={`/app/dashboards/setting/${dataFromJson.id}`}>
-          <div className="table-responsive">
-            <Table columns={tableColumns} dataSource={dataFromJson} rowKey='id' />
+        <div className="table-responsive">
+          <Table columns={tableColumns} dataSource={dataFromJson} rowKey='id' />
+        </div>
+        {dataFromJson
+          ?
+          <UserView data={dataFromJson} visible={userProfileVisible} close={closeUserProfile} />
+          :
+          <div className='spin-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Spin size='large' />
           </div>
-          {dataFromJson
-            ?
-            <UserView data={dataFromJson} visible={userProfileVisible} close={closeUserProfile} />
-            :
-            <div className='spin-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Spin size='large' />
-            </div>
-          }
-        </Link>
         }
       </Card>
     </div>
