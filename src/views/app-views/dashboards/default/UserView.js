@@ -11,7 +11,6 @@ import {
 
 import { Link } from 'react-router-dom';
 
-
 const UserView = ({ data, visible, close }) => {
     // <Link to={`/app/dashboards/setting/${data.id}`}>
 
