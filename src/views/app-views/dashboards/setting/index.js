@@ -4,10 +4,13 @@ import { UserOutlined } from '@ant-design/icons';
 import { ROW_GUTTER } from 'constants/ThemeConstant';
 import Flex from 'components/shared-components/Flex'
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const EditProfile = () => {
 
     const avatarEndpoint = 'https://www.mocky.io/v2/5cc8019d300000980a055e76'
+    const params = useParams()
+    console.log('params', params)
 
     const [user, setUser] = useState({
         avatarUrl: '/img/avatars/thumb-6.jpg',

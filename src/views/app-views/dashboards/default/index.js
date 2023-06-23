@@ -95,7 +95,7 @@ export const DefaultDashboard = () => {
   return (
     <div>
       <Card>
-        <Link to='/app/dashboards/setting'>
+        {dataFromJson && <Link to={`/app/dashboards/setting/${dataFromJson.id}`}>
           <div className="table-responsive">
             <Table columns={tableColumns} dataSource={dataFromJson} rowKey='id' />
           </div>
@@ -108,6 +108,7 @@ export const DefaultDashboard = () => {
             </div>
           }
         </Link>
+        }
       </Card>
     </div>
   )

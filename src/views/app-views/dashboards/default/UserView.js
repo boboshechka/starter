@@ -8,13 +8,14 @@ import {
     InstagramOutlined,
     TwitterOutlined,
 } from '@ant-design/icons';
+
 import { Link } from 'react-router-dom';
 
+
 const UserView = ({ data, visible, close }) => {
+    // <Link to={`/app/dashboards/setting/${data.id}`}>
 
     return (
-        <Link to='/app/dashboards/setting'>
-            bla
             <Drawer
                 width={300}
                 placement="right"
@@ -59,7 +60,6 @@ const UserView = ({ data, visible, close }) => {
                     </p>
                 </div>
             </Drawer>
-        </Link>
     )
 }
 
