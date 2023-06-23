@@ -77,7 +77,7 @@ const EditProfile = () => {
             <Flex alignItems="center" mobileFlex={false} className="text-center text-md-left">
                 <Avatar size={90} src={user.avatarUrl} icon={<UserOutlined />} />
                 <div className="ml-3 mt-md-0 mt-3">
-                    <Upload onChange={onUploadAavater} showUploadList={false} action={this.avatarEndpoint}>
+                    <Upload onChange={onUploadAavater} showUploadList={false} action={avatarEndpoint}>
                         <Button type="primary">Change Avatar</Button>
                     </Upload>
                     <Button className="ml-2" onClick={onRemoveAvater}>Remove</Button>
