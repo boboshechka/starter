@@ -4,6 +4,7 @@ import UserView from './UserView';
 import { EyeOutlined, DeleteOutlined } from '@ant-design/icons';
 import AvatarStatus from 'components/shared-components/AvatarStatus';
 import dayjs from 'dayjs';
+import { Link } from 'react-router-dom';
 
 
 export const DefaultDashboard = () => {
@@ -33,7 +34,7 @@ export const DefaultDashboard = () => {
     setSelectedUser(null)
   }
 
-  function deleteUser(userId){
+  function deleteUser(userId) {
     setDataFromJson(state => state.filter(item => item.id !== userId))
     message.success({ content: `Deleted user ${userId}`, duration: 2 });
   }
@@ -94,17 +95,19 @@ export const DefaultDashboard = () => {
   return (
     <div>
       <Card>
-        <div className="table-responsive">
-          <Table columns={tableColumns} dataSource={dataFromJson} rowKey='id' />
-        </div>
-        {dataFromJson
-          ?
-          <UserView data={dataFromJson} visible={userProfileVisible} close={closeUserProfile} />
-          :
-          <div className='spin-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Spin size='large' />
+        <Link to='/app/dashboards/setting'>
+          <div className="table-responsive">
+            <Table columns={tableColumns} dataSource={dataFromJson} rowKey='id' />
           </div>
-        }
+          {dataFromJson
+            ?
+            <UserView data={dataFromJson} visible={userProfileVisible} close={closeUserProfile} />
+            :
+            <div className='spin-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Spin size='large' />
+            </div>
+          }
+        </Link>
       </Card>
     </div>
   )
