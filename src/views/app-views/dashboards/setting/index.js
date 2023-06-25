@@ -68,7 +68,7 @@ const EditProfile = () => {
     };
 
     const onRemoveAvater = () => {
-        this.setState({
+        setUser({
             avatarUrl: ''
         })
     }

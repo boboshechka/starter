@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import UserView from './UserView';
 import { EyeOutlined, DeleteOutlined } from '@ant-design/icons';
 import AvatarStatus from 'components/shared-components/AvatarStatus';
-import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 
 
@@ -46,7 +45,10 @@ export const DefaultDashboard = () => {
       dataIndex: 'name',
       render: (_, record) => (
         <div className="d-flex">
-          <Link to={`/app/dashboards/setting/${dataFromJson.id}`}>
+          <Link to={{
+            pathname: `/app/dashboards/setting/${dataFromJson.id}`,
+            propsUser: dataFromJson
+          }}>
             <AvatarStatus src={record.img} name={record.name} subTitle={record.email} />
           </Link>
         </div>
