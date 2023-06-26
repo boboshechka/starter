@@ -4,13 +4,15 @@ import { UserOutlined } from '@ant-design/icons';
 import { ROW_GUTTER } from 'constants/ThemeConstant';
 import Flex from 'components/shared-components/Flex'
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const EditProfile = (props) => {
 
     const avatarEndpoint = 'https://www.mocky.io/v2/5cc8019d300000980a055e76'
     const params = useParams()
+    const propsUser  = useLocation()
     console.log('params', params)
+    console.log('propsUser', propsUser)
 
     const [user, setUser] = useState({
         avatarUrl: '/img/avatars/thumb-6.jpg',
@@ -25,7 +27,7 @@ const EditProfile = (props) => {
         postcode: ''
     })
 
-    console.log('props from setting', props.propsUser)
+    console.log('props from setting', props)
 
 
     const onFinish = values => {
@@ -75,7 +77,7 @@ const EditProfile = (props) => {
 
 
 
-    return ( 
+    return (
         <>
             <Flex alignItems="center" mobileFlex={false} className="text-center text-md-left">
                 <Avatar size={90} src={user.avatarUrl} icon={<UserOutlined />} />
@@ -207,7 +209,7 @@ const EditProfile = (props) => {
                 </Form>
             </div>
         </>
-     )
+    )
 }
- 
+
 export default EditProfile
