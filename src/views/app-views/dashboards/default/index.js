@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import UserView from './UserView';
 import { EyeOutlined, DeleteOutlined } from '@ant-design/icons';
 import AvatarStatus from 'components/shared-components/AvatarStatus';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export const DefaultDashboard = () => {
@@ -11,17 +11,15 @@ export const DefaultDashboard = () => {
   const [userProfileVisible, setUserProfileVisible] = useState(false)
   const [selectedUser, setSelectedUser] = useState(null)
 
-  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => {
-        console.log('usersss', users)
 
-        // setTimeout(() => {
-        setDataFromJson(users)
-        // }, 2000)
+        setTimeout(() => {
+          setDataFromJson(users)
+        }, 1000)
 
       })
 
@@ -41,7 +39,6 @@ export const DefaultDashboard = () => {
     setDataFromJson(state => state.filter(item => item.id !== userId))
     message.success({ content: `Deleted user ${userId}`, duration: 2 });
   }
-  // pathname: `/app/dashboards/setting/${record.id}`,
 
   const tableColumns = [
     {
@@ -49,8 +46,8 @@ export const DefaultDashboard = () => {
       dataIndex: 'name',
       render: (_, record) => (
         <div className="d-flex">
-          <Link to={`/app/dashboards/setting/${record.id}`} state={{record}}>
-          <AvatarStatus src={record.img} name={record.name} subTitle={record.email} />
+          <Link to={`/app/dashboards/setting/${record.id}`} state={{ record }}>
+            <AvatarStatus src={record.img} name={record.name} subTitle={record.email} />
           </Link>
         </div>
       ),
