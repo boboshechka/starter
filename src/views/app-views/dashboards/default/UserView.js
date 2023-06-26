@@ -11,8 +11,6 @@ import { Link } from 'react-router-dom';
 
 const UserView = ({ data, visible, close }) => {
     // <Link to={`/app/dashboards/setting/${data.id}`}>
-
-    console.log('data from view', data)
     if(data){
         return (
             <Drawer

@@ -25,7 +25,7 @@ const EditProfile = (props) => {
         postcode: ''
     })
 
-console.log('props from setting', props)
+    console.log('props from setting', props.propsUser)
 
 
     const onFinish = values => {
