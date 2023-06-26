@@ -6,7 +6,7 @@ import Flex from 'components/shared-components/Flex'
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const EditProfile = () => {
+const EditProfile = (props) => {
 
     const avatarEndpoint = 'https://www.mocky.io/v2/5cc8019d300000980a055e76'
     const params = useParams()
@@ -25,7 +25,7 @@ const EditProfile = () => {
         postcode: ''
     })
 
-
+console.log('props from setting', props)
 
 
     const onFinish = values => {

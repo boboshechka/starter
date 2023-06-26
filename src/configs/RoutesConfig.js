@@ -30,4 +30,9 @@ export const protectedRoutes = [
         path: `${APP_PREFIX_PATH}/dashboards/setting/:id`,
         component: React.lazy(() => import('views/app-views/dashboards/setting')),
     },
+    {
+        key: 'dashboard.planner',
+        path: `${APP_PREFIX_PATH}/dashboards/planner`,
+        component: React.lazy(() => import('views/app-views/dashboards/Planner')),
+    },
 ]

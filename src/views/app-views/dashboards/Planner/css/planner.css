@@ -1,0 +1,26 @@
+.planner{
+    display: flex;
+    flex-direction: column;
+}
+
+.obj-container {
+    display: flex;
+    flex-direction: row;
+    /* min-height: 500px; */
+    /* border: 1px solid red; */
+}
+.obj-container:first-child {
+    margin-left: 20px;
+}
+
+.obj-container img {
+    width: 128px;
+    height: 128px;
+    margin-right: 40px;
+}
+
+.board {
+    border: 1px solid red;
+    min-height: 500px;
+}
+

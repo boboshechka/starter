@@ -25,7 +25,15 @@ const dashBoardNavTree = [{
       icon: DashboardOutlined,
       breadcrumb: false,
       submenu: []
-    }
+    },
+    {
+      key: 'dashboards-2D',
+      path: `${APP_PREFIX_PATH}/dashboards/planner`,
+      title: 'Планировщик',
+      icon: DashboardOutlined,
+      breadcrumb: false,
+      submenu: []
+    },
   ]
 }]
 
