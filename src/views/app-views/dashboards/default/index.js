@@ -41,17 +41,15 @@ export const DefaultDashboard = () => {
     setDataFromJson(state => state.filter(item => item.id !== userId))
     message.success({ content: `Deleted user ${userId}`, duration: 2 });
   }
-  
+  // pathname: `/app/dashboards/setting/${record.id}`,
+
   const tableColumns = [
     {
       title: 'User',
       dataIndex: 'name',
       render: (_, record) => (
         <div className="d-flex">
-          <Link to={{
-            pathname: `/app/dashboards/setting/${record.id}`,
-            propsUser: record
-          }}>
+          <Link to={`/app/dashboards/setting/${record.id}`} state={{record}}>
           <AvatarStatus src={record.img} name={record.name} subTitle={record.email} />
           </Link>
         </div>
