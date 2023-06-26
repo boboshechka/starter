@@ -106,7 +106,7 @@ export const DefaultDashboard = () => {
         </div>
         {dataFromJson
           ?
-          <UserView data={dataFromJson} visible={userProfileVisible} close={closeUserProfile} />
+          <UserView data={selectedUser} visible={userProfileVisible} close={closeUserProfile} />
           :
           <div className='spin-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Spin size='large' />
